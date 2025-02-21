@@ -43,7 +43,7 @@ export default function LoginForm() {
         setToken(data.token);
         toast.dismiss(toastId);
         toast.success(data.message || "Login successful!");
-        navigate("/");
+        navigate("/home");
 
       } else {
         toast.dismiss(toastId);
