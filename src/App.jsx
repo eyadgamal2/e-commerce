@@ -17,8 +17,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import ProductDetails from "./page/ProductDetails.jsx";
 import CartContextProvider from './Context/CartContext';
 import Payment from './page/Payment';
-import ProtectedRoute from "./compontents/ProtectedRoute.jsx";
-import AuthProtected from "./compontents/AuthProtected.jsx";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ForgetPassword from './page/ForgetPassword.jsx';
@@ -31,25 +29,24 @@ export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <AuthContextProvider>
+      element:
         <CartContextProvider>
           <Layout />
-          </CartContextProvider>
-      </AuthContextProvider>,
+        </CartContextProvider>,
       children: [
-        { path: "home", element: <ProtectedRoute><Home /></ProtectedRoute> },
-        { path: "brands", element: <ProtectedRoute><Brands /></ProtectedRoute> },
-        { path: "products", element: <ProtectedRoute><Products /></ProtectedRoute> },
-        { path: "cart", element: <ProtectedRoute><Cart /></ProtectedRoute> },
-        { path: "wishlist", element: <ProtectedRoute><WishList /></ProtectedRoute> },
-        { path: "catgories", element: <ProtectedRoute><Catgories /></ProtectedRoute> },
-        { path: "login", element: <AuthProtected><Login /></AuthProtected> },
-        { path: "verifycode", element: <AuthProtected><VerifyCode /></AuthProtected> },
-        { path: "forgetpassword", element: <AuthProtected><ForgetPassword /></AuthProtected> },
-        { path: "resetpassword", element: <AuthProtected><ResetPassowrd /></AuthProtected> },
-        { path: "register", element: <AuthProtected><Register /></AuthProtected> },
-        { path: 'products/:id', element: <ProtectedRoute><ProductDetails /></ProtectedRoute> },
-        { path: 'payment', element: <ProtectedRoute><Payment /></ProtectedRoute> },
+        { path: "home", element: <Home /> },
+        { path: "brands", element: <Brands /> },
+        { path: "products", element: <Products /> },
+        { path: "cart", element: <Cart /> },
+        { path: "wishlist", element: <WishList /> },
+        { path: "catgories", element: <Catgories /> },
+        { path: "login", element: <Login /> },
+        { path: "verifycode", element: <VerifyCode /> },
+        { path: "forgetpassword", element: <ForgetPassword /> },
+        { path: "resetpassword", element: <ResetPassowrd /> },
+        { path: "register", element: <Register /> },
+        { path: 'products/:id', element: <ProductDetails /> },
+        { path: 'payment', element: <Payment /> },
         { path: "*", element: <NotFound /> },
       ]
     }
